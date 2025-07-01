@@ -11,7 +11,7 @@ config_folders=(
   kitty
   picom
   i3
-  vim
+  nvim
   wallpaper
   rofi
   polybar
