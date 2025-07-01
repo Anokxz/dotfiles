@@ -1,1 +1,0 @@
-/home/anokxz/.zshrc

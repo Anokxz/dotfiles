@@ -3,17 +3,14 @@
 # Linking Shell config
 shell=$(echo "$SHELL" | awk -F/ '{print $NF}')
 
-mkdir -p $HOME/dotfiles/$shell
-
 find "$HOME" -maxdepth 1 -type f -name ".${shell}*" | while read -r shell_config; do
-  ln -sf "$shell_config" "$HOME/dotfiles/$shell"  
+  mv "$shell_config" "$HOME/dotfiles/"  
 done
 
 config_folders=(
   kitty
   picom
   i3
-  Code
   vim
   wallpaper
   rofi
@@ -21,7 +18,9 @@ config_folders=(
 )
 
  
+mkdir -p "$HOME/dotfiles/.config"
 for config_folder in "${config_folders[@]}"; do
-  mkdir -p "$HOME/dotfiles/$config_folder"
-  ln -sf "$HOME/.config/$config_folder" "$HOME/dotfiles/$config_folder"
+  mv "$HOME/.config/$config_folder" "$HOME/dotfiles/.config/$config_folder"
 done
+
+
